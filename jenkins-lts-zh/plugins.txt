@@ -1,0 +1,2 @@
+#localization-zh-cn
+localization-zh-cn:::https://mirrors.tuna.tsinghua.edu.cn/jenkins/plugins/localization-zh-cn/latest/localization-zh-cn.hpi
