@@ -1,0 +1,31 @@
+version: "3"
+services:
+
+  mysqld:
+    image: mariadb:10.3.0
+    container_name: mysqld_master
+    environment:
+      MYSQL_ROOT_PASSWORD: cartoon
+      MYSQL_DATABASE: dragonball
+    ports:
+    - 3326:3306
+    volumes:
+    - "./data/master/mysql:/var/lib/mysql"
+    - "./utf8mb4.cnf:/etc/mysql/conf.d/utf8mb4.cnf"
+
+  redis:
+    image: redis:4.0.5-alpine
+    container_name: redis_server
+    command: ["redis-server","--appendonly","yes"]
+    volumes:
+    - "~/data/redis:/data"
+    ports:
+    - 16379:6379
+
+  maxwell:
+    image: zendesk/maxwell:latest
+    container_name: maxwell
+    command: ["bin/maxwell","--host=mysqld","--password=maxwell","--user=maxwell","--producer=redis","--redis_host=redis","--redis_type=lpush","--redis_key=maxwell"]
+    depends_on:
+    - mysqld
+    - redis
