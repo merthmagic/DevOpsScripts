@@ -1,12 +1,20 @@
 # DevOpsScripts
-Some DevOps scripts
+Some out-of-box scritps to deploy service for testing.
 
-## Docker Images
-- parse-server: scripts to deploy parse-server service quickly
-- jenkins-lts-zh: jenkins with Chinese lanugage plugin installed
+## CI/CD servers
+- jenkins-lts-zh
+- teamcity
+- concourse
 
-## Scripts
+## Application servers
+- parse-server
 
-- Start a teamcity server instance: `start-teamcity-container.sh`
+## Middlewares
+- canal
+- maxwell
+
+## Data
+- elasticsearch
+
 
 
