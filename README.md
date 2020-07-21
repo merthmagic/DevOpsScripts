@@ -1,4 +1,4 @@
-# DevOps
+# DevOpsScripts
 Some DevOps scripts
 
 ## Docker Images
